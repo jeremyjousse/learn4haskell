@@ -39,7 +39,7 @@ Now, if you are ready, bring it on!
 -}
 
 module Chapter2 where
-
+import Data.List
 {-
 =🛡= Imports
 
@@ -353,7 +353,7 @@ from it!
 ghci> :l src/Chapter2.hs
 -}
 subList :: Int -> Int -> [a] -> [a]
-subList = error "subList: Not implemented!"
+subList x y list = take (y + 1 - x) $ drop x list
 
 {- |
 =⚔️= Task 4
@@ -366,8 +366,12 @@ Implement a function that returns only the first half of a given list.
 "b"
 -}
 -- PUT THE FUNCTION TYPE IN HERE
-firstHalf l = error "firstHalf: Not implemented!"
-
+firstHalf l =
+  take halfListSize l
+  where
+    listSize =  length l
+    halfListSize = div listSize 2
+    --drop ((length l) `div` 2) l
 
 {- |
 =🛡= Pattern matching
